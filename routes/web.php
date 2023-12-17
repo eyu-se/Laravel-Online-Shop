@@ -18,9 +18,13 @@ Route::get('/', function () {
 });
 
 
-Route::get('about', function () {
-    return view('about');
-});
+// Route::get('about', function () {
+//     return view('about');
+// });
+
+Route::get('about', '\App\Http\Controllers\HomeController@about')->name("home.about");
+
+
 
 Route::get('cart', function () {
     return view('cart');
