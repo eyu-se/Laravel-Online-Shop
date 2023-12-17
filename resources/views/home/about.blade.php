@@ -11,15 +11,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         crossorigin="anonymous" />
 
-    <title>Online Store - About</title>
+    <title> <?php echo $title; ?> </title>
 
     <style>
         .bg-secondary {
             background-color: #2c3e50 !important;
         }
 
-        .copyright {
+        .footer {
             background-color: #1a252f;
+            position: absolute;
+            bottom: 0%;
+            right: 0%;
+            left: 0%;
+
         }
 
         .bg-primary {
@@ -46,7 +51,7 @@
 
         <div class="container">
 
-            <a class="navbar-brand" href="#">Online Store</a>
+            <a class="navbar-brand" href="#"><?php echo $title; ?></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -81,7 +86,7 @@
 
         <div class="container d-flex align-items-center flex-column">
 
-            <h2>About The Online Store</h2>
+            <h2> <?php echo $subtitle; ?> </h2>
 
         </div>
 
@@ -93,11 +98,46 @@
 
     <div class="container my-4">
 
+        <div class="container">
 
+            <div class="row">
+
+                <div class="col-lg-4 ms-auto">
+
+                    <p class="lead"> <?php echo $description; ?> </p>
+
+                </div>
+
+                <div class="col-lg-4 me-auto">
+
+                    <p class="lead"> <?php echo $author; ?> </p>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
+    <div class=" py-4 text-center text-white footer">
 
+        <div class="container">
+
+            <small class="copyright">
+
+                Copyright - <a class="text-reset fw-bold text-decoration-none" target="_blank"
+                    href="https://twitter.com/user">
+
+                    FirstName LastName
+
+                </a> - <b>XYZ Company</b>
+
+            </small>
+
+        </div>
+
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
