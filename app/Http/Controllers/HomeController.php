@@ -6,39 +6,35 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    function index()
+    public function index()
+
     {
-        $title = "Home - Online Store";
 
-        $subtitle = "Major Categories in Our Shop";
+        $viewData = [];
 
+        $viewData["title"] = "Home Page - Online Store";
 
-        $imageUrls = ['https://placehold.co/350',
-                        'https://placehold.co/350',
-                        'https://placehold.co/350'];
-
-        return view('home.index')->with('title', $title)
-
-            ->with('subtitle', $subtitle)
-            ->with('imageUrls', $imageUrls);
+        return view('home.index')->with("viewData", $viewData);
     }
 
+
+
     public function about()
+
     {
-        $title = "About us - Online Store";
 
-        $subtitle = "About us Page";
+        $viewData = [];
 
-        $description = "This is an about page ...";
+        $viewData["title"] = "About us - Online Store";
 
-        $author = "Developed by: FirstName LastName";
+        $viewData["subtitle"] = "About us";
 
-        return view('home.about')->with('title', $title)
+        $viewData["description"] = "This is an about page ...";
 
-            ->with('subtitle', $subtitle)
+        $viewData["author"] = "Developed by: FirstName LastName";
 
-            ->with('description', $description)
+        return view('home.about')->with("viewData", $viewData);
 
-            ->with('author', $author);
+
     }
 }
