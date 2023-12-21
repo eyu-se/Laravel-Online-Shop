@@ -13,14 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('index');
-// });
-// Route::get('about', function () {
-//     return view('about');
-// });
-
-
 Route::get('/', '\App\Http\Controllers\HomeController@index')->name("home.index");
 
 Route::get('about', '\App\Http\Controllers\HomeController@about')->name("home.about");
@@ -30,15 +22,11 @@ Route::get('/products', '\App\Http\Controllers\ProductController@index')->name("
 Route::get('/products/{id}', '\App\Http\Controllers\ProductController@show')->name("product.show");
 
 
-// Route::get('cart', function () {
-//     return view('cart');
-// });
+Route::get('/admin', '\App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
 
-// Route::get('products', function () {
-//     return view('products');
-// });
+Route::get('/admin/products', '\App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
 
+Route::post('/admin/products/store', '\App\Http\Controllers\Admin\AdminProductController@store')->name("admin.product.store");
 
-
-
+Route::get('/admin/products/create', '\App\Http\Controllers\Admin\AdminProductController@create')->name("admin.product.create");
 
