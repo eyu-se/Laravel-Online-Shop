@@ -8,7 +8,19 @@
         <div class="card-header"> Manage Products
         </div>
         <div class="card-body">
+            <div>
+                <a href="{{ route('admin.product.create') }}">
+                    <button type="button" class="btn btn-primary float-end">
+                        Create Product
+                    </button>
+                </a>
+
+                <br>
+            </div>
+
+
             <table class="table table-bordered table-striped">
+                <br>
                 <thead>
 
                     <tr>
