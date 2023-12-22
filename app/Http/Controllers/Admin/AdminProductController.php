@@ -41,7 +41,7 @@ class AdminProductController extends Controller
         $newProduct->save();
 
         if ($request->hasFile('image')) {
-            $imageName = $newProduct->getId().".".$request->file('image')->extension();
+            $imageName = $newProduct->id.".".$request->file('image')->extension();
             Storage::disk('public')->put($imageName,
                                 file_get_contents($request->file('image')->getRealPath()));
             $newProduct->image = $imageName;
