@@ -52,6 +52,10 @@
                         <a class="nav-link active" href="{{ route('register') }}">Register</a>
 
                     @else
+                        @if(Auth::user()->role == 'admin')
+                            <a class="nav-link active" href="{{ route('admin.home.index') }}">Dashboard</a>
+
+                        @endif
 
                         <form id="logout" action="{{ route('logout') }}" method="POST">
                             <a role="button" class="nav-link active"

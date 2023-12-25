@@ -37,7 +37,23 @@ Route::get('/admin/products/{id}/edit', '\App\Http\Controllers\Admin\AdminProduc
 
 Route::put('/admin/products/{id}/update', '\App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
 
+Route::middleware('admin')->prefix('/admin')->group(function () {
 
+        Route::get('/', '\App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
+
+        Route::get('/products', '\App\Http\Controllers\Admin\AdminProductController@index')->name("admin.product.index");
+
+        Route::post('/products/store', '\App\Http\Controllers\Admin\AdminProductController@store')->name("admin.product.store");
+
+        Route::get('/products/create', '\App\Http\Controllers\Admin\AdminProductController@create')->name("admin.product.create");
+
+        Route::delete('/products/{id}/delete', '\App\Http\Controllers\Admin\AdminProductController@delete')->name("admin.product.delete");
+
+        Route::get('/products/{id}/edit', '\App\Http\Controllers\Admin\AdminProductController@edit')->name("admin.product.edit");
+
+        Route::put('/products/{id}/update', '\App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
+
+});
 
 Auth::routes();
 
