@@ -55,6 +55,8 @@
                         <a class="nav-link active" href="{{ route('register') }}">Register</a>
 
                     @else
+                        <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a>
+
                         @if(Auth::user()->role == 'admin')
                             <a class="nav-link active" href="{{ route('admin.home.index') }}">Dashboard</a>
 
