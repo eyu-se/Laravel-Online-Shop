@@ -35,11 +35,13 @@
                         <b>Total to pay:</b> ${{ $viewData['total'] }}
                     </a>
 
-                    <a class="btn bg-primary text-white mb-2">Purchase</a>
+                    @if (count($viewData['products']) > 0)
+                        <a href="{{ route('cart.purchase') }}" class="btn bg-primary text-white mb-2">Purchase</a>
+                        <a href="{{ route('cart.delete') }}">
+                            <button class="btn btn-danger mb-2"> Remove all products from Cart </button>
+                        </a>
+                    @endif
 
-                    <a href="{{ route('cart.delete') }}">
-                        <button class="btn btn-danger mb-2"> Remove all products from Cart </button>
-                    </a>
                 </div>
             </div>
         </div>
