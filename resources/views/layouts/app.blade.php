@@ -25,7 +25,7 @@
 
         <div class="container">
 
-            <a class="navbar-brand" href="#">Online Store</a>
+            <a class="navbar-brand" href="#">{{ __('Online Store') }}</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -116,8 +116,11 @@
                 </a> - <b>XYZ Company</b>
 
             </small>
+            @include('partials.language_switcher')
+
 
         </div>
+
 
     </div>
 
