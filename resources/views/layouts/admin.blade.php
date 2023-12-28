@@ -27,7 +27,19 @@
             <hr />
             <ul class="nav flex-column sidebar">
                 <li><a href="{{ route('admin.home.index') }}" class="nav-link text-white">- Admin - Home</a></li>
+
+                @can('product-list')
                 <li><a href="{{ route('admin.product.index') }}" class="nav-link text-white">- Admin - Products</a></li>
+                @endcan
+
+                @can('user-list')
+                <li><a class="nav-link text-white" href="{{ route('users.index') }}">Manage Users</a></li>
+                @endcan
+
+                @can('role-list')
+                <li><a class="nav-link text-white" href="{{ route('roles.index') }}">Manage Role</a></li>
+                @endcan
+
                 <li>
                     <a href="{{ route('home.index') }}" class="mt-2 btn bg-primary text-white">Go back to the home
                         page</a>

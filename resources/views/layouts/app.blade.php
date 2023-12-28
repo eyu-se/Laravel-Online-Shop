@@ -55,12 +55,13 @@
                         <a class="nav-link active" href="{{ route('register') }}">Register</a>
 
                     @else
+                        @can('purchase')
                         <a class="nav-link active" href="{{ route('myaccount.orders') }}">My Orders</a>
-
-                        @if(Auth::user()->hasRole('admin'))
+                        @endcan
+                        @can('dashboard-view')
                             <a class="nav-link active" href="{{ route('admin.home.index') }}">Dashboard</a>
 
-                        @endif
+                        @endcan
 
                         <form id="logout" action="{{ route('logout') }}" method="POST">
                             <a role="button" class="nav-link active"
