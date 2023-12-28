@@ -73,3 +73,8 @@ Route::middleware('auth')->group(function () {
 
 Route::get('language/{locale}', '\App\Http\Controllers\LocalizationController@changeLocale')->name("locale");
 
+
+Route::get("/test", function () {
+    return "you are here";
+})->middleware(['hasrole:super,admin']);
+
