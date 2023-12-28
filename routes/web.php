@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -37,7 +39,7 @@ Route::get('/admin/products/{id}/edit', '\App\Http\Controllers\Admin\AdminProduc
 
 Route::put('/admin/products/{id}/update', '\App\Http\Controllers\Admin\AdminProductController@update')->name("admin.product.update");
 
-Route::middleware('admin')->prefix('/admin')->group(function () {
+Route::middleware('auth')->prefix('/admin')->group(function () {
 
         Route::get('/', '\App\Http\Controllers\Admin\AdminHomeController@index')->name("admin.home.index");
 
@@ -74,7 +76,9 @@ Route::middleware('auth')->group(function () {
 Route::get('language/{locale}', '\App\Http\Controllers\LocalizationController@changeLocale')->name("locale");
 
 
-Route::get("/test", function () {
-    return "you are here";
-})->middleware(['hasrole:super,admin']);
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', '\App\Http\Controllers\Admin\RoleController');
+    Route::resource('users', '\App\Http\Controllers\Admin\UserController');
+});
+
 
