@@ -70,3 +70,6 @@ Route::middleware('auth')->group(function () {
 
 });
 
+
+Route::get('language/{locale}', '\App\Http\Controllers\LocalizationController@changeLocale')->name("locale");
+
